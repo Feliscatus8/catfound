@@ -1,0 +1,18 @@
+{% block title %}<h1>The Cat Foundation</h1>{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<h2>Profil wolontariusza {{ request.user.first_name }} {{ request.user.last_name }}</h2>
+    <p>telefon: {{ request.user.phone }}</p>
+    <p>dzielnica: {{ request.user.district }}</p>
+    <p>umiejętności: {{ request.user.skills }}</p>
+    <p>godziny dostępności: {{ request.user.availability }}</p>
+    <p>edytuj</p>
+    <p><a href="{% url 'interface' %}">strona główna</a></p>
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}

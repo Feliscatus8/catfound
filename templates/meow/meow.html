@@ -2,10 +2,10 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    
-    Hi {{ request.user.first_name }}!
+
+<h2>Hi {{ request.user.first_name }}!</h2>
     <p>moje zadania</p>
-    <p>edytuj profil</p>
+    <a href="{% url 'profile' %}">Twój profil</a>
   <p><a href="{% url 'logout' %}">logout</a></p>
 {% else %}
   <p>You are not logged in</p>
